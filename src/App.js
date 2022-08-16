@@ -1,25 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Vehicles from "./components/Vehicles/Vehicles.js";
+import React from "react";
+import {getAll} from "./services";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [vehicles, setVehicles] = React.useState([]);
+    const [query, setQuery] = React.useState("")
+
+    React.useEffect(() => {
+        getAll().then((vehicles) => {
+            setVehicles(vehicles);
+        });
+    }, []);
+
+    return (
+        <div className="app">
+            <div className="searchBar">
+                <input placeholder="Search" onChange={event => setQuery(event.target.value)}/>
+            </div>
+            <Vehicles vehicles={vehicles} query={query}/>
+        </div>
+    );
 }
 
 export default App;
