@@ -4,20 +4,17 @@ import './Vehicles.css'
 
 const Vehicles = ({
                       vehicles,
-                      query
+                      loading
                   }) => {
+    if (loading) {
+        return <h2>Loading</h2>
+    }
 
     return (
         <ul className="vehiclesList">
-            {vehicles.filter(vehicle => {
-                if (query === '') {
-                    return vehicle;
-                } else if (vehicle.name.toLowerCase().includes(query.toLowerCase())) {
-                    return vehicle;
-                }
-            }).map(vehicle =>
-                <VehicleCard key={vehicle._id} vehicle={vehicle}/>
-            )}
+            {vehicles.map(vehicle =>
+                    <VehicleCard key={vehicle._id} vehicle={vehicle}/>
+                )}
         </ul>
     )
 }

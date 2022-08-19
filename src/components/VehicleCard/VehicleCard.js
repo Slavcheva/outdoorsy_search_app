@@ -6,7 +6,7 @@ const VehicleCard = ({
     return(
         <li className="card">
                 <div className="image">
-                    <img src={vehicle.imageUrl}/>
+                    <img src={vehicle.imageUrl} alt="vehicle"/>
                 </div>
                 <article className="content">
                     <p> {vehicle.name}</p>

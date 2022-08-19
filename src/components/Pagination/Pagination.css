@@ -1,0 +1,22 @@
+.pagination-container {
+    display: flex;
+    list-style-type: none;
+    justify-content: center;
+    margin-bottom: 2em;
+}
+.pagination-item {
+    padding: 1em;
+    text-align: center;
+    margin: auto 4px;
+    color: rgba(0, 0, 0, 0.99);
+    display: flex;
+    align-items: center;
+    font-size: 1em;
+}
+
+.pagination-item :hover {
+    cursor: pointer;
+    color: rgba(0, 0, 0, 0.25);
+
+}
+
