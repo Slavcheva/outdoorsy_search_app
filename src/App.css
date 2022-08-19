@@ -1,21 +1,32 @@
-.app{
-    width: 80em;
-    /*border: 1px solid black;*/
+.app {
+    margin: 4em;
 }
+
 .vehiclesList {
     display: flex;
     flex-direction: column;
 }
+
 .searchBar {
     display: block;
     text-align: center;
     width: 100%;
     margin: 2em 0;
 }
-.searchBar input{
+
+.searchBar input {
+    border: 3px solid grey;
+    background-color: transparent;
+    resize: none;
+    outline: none;
     width: 100%;
-    height: auto;
     font-size: 2em;
     padding: 1em;
     border-radius: 0.5em;
+}
+
+@media ( max-width: 700px) {
+    .searchBar input {
+        font-size: 1em;
+    }
 }

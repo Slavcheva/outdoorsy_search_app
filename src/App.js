@@ -10,7 +10,7 @@ export default function App() {
     const [query, setQuery] = React.useState("")
     const [loading, setLoading] = React.useState(false)
     const [currentPage, setCurrentPage] = React.useState(1)
-    const [vehiclesPerPage] = React.useState(5);
+    const [limit] = React.useState(8);
 
     React.useEffect(() => {
         getAll().then((vehicles) => {
@@ -18,15 +18,14 @@ export default function App() {
             setVehicles(vehicles);
             setLoading(false);
         });
-    }, []);
+    },[]);
 
-    const indexOfLastVehicle = currentPage * vehiclesPerPage;
-    const indexOfFirstVehicle = indexOfLastVehicle - vehiclesPerPage;
+    const indexOfLastVehicle = currentPage * limit;
+    const indexOfFirstVehicle = indexOfLastVehicle - limit;
     let filteredVehicles = vehicles.filter(vehicle => vehicle.name.toLowerCase().includes(query.toLowerCase()))
     const currentVehicles = filteredVehicles.slice(indexOfFirstVehicle, indexOfLastVehicle);
 
-    console.log(filteredVehicles)
-        const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
 
     return (
@@ -38,7 +37,7 @@ export default function App() {
                 <>
                     <Vehicles vehicles={currentVehicles} loading={loading}/>
 
-                    <Pagination vehiclesPerPage={vehiclesPerPage}
+                    <Pagination limit={limit}
                                 allVehicles={filteredVehicles.length}
                                 paginate={paginate}
                     />

@@ -1,4 +1,4 @@
 .vehiclesList{
     display: flex;
-
+    list-style-type: none;;
 }

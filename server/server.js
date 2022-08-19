@@ -553,9 +553,9 @@
             if (query.offset) {
                 responseData = responseData.slice(Number(query.offset) || 0);
             }
-            const pageSize = Number(query.pageSize) || 10;
-            if (query.pageSize) {
-                responseData = responseData.slice(0, pageSize);
+            const limit = Number(query.limit) || 10;
+            if (query.limit) {
+                responseData = responseData.slice(0, limit);
             }
 
             if (query.distinct) {
